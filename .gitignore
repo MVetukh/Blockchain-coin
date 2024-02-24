@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+cryptodich/poetry.lock
+cryptodich/cryptodich/__init__.py
+cryptodich/pyproject.toml
+cryptodich/README.md
+cryptodich/tests/__init__.py

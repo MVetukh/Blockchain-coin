@@ -401,3 +401,6 @@ cryptodich/cryptodich/__init__.py
 cryptodich/pyproject.toml
 cryptodich/README.md
 cryptodich/tests/__init__.py
+cryptodich/cryptodich/funcoin/pyproject.toml
+cryptodich/cryptodich/funcoin/poetry.lock
+cryptodich/cryptodich/funcoin/funcoin/__init__.py

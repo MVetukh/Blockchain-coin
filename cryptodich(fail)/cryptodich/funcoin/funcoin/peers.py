@@ -1,6 +1,6 @@
 import asyncio 
 import logging
-from massages import create_peers_message, create_block_message, create_transaction_message,create_ping_message
+from funcoin.massages import create_peers_message, create_block_message, create_transaction_message,create_ping_message
 
 logger = logging.getLogger(__name__)
 

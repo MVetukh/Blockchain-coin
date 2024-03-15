@@ -17,23 +17,23 @@ class Blockchain():
         logger.info('creating blockchain of down from class corection')
         self.new_block()
     def new_block(self) -> dict:
-        block = self.create_block(
-            height = len(self.chain),
-            #'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            transactions = self.pending_transactions,
+      block = self.create_block(
+          height = len(self.chain),
+          # 'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+          transactions = self.pending_transactions,
+          
+          previous_hash = self.last_block()['hash'] if self.last_block() else None, # Исправлено на вызов метода
+          nonce = format(random.getrandbits(64), "x"),
+          target = self.target,
+          timestamp = time())
+      #block_hash: str = self.hash(block)
+      #block['hash'] = block_hash
+      self.pending_transactions = []
+      # self.chain.append(block)
+      # print (f"Created block {block['index']}")
             
-            previous_hash = self.last_block['hash'] if self.last_block else None,
-            nonce = format(random.getrandbits(64), "x"),
-            target = self.target,
-            timestamp = time())
-        #block_hash: str = self.hash(block)
-        #block['hash'] = block_hash
+      return block
 
-        self.pending_transactions = []
-        # self.chain.append(block)
-        # print (f"Created block {block['index']}")
-              
-        return block
     
     @staticmethod
     def create_block(height: int, transactions: list, previous_hash: str, nonce: str, target: str, timestamp: str = None) -> dict:
@@ -47,10 +47,11 @@ class Blockchain():
         }
         block_string = json.dumps(block, sort_keys=True).encode()
         block['hash'] = sha256(block_string).hexdigest()
+        return block
     
     @staticmethod
     def hash(block) -> str:
-        block_string: str = json.dumps(block, sort_keys=True, indent=4, default=str).encode()
+        block_string: str = json.dumps(block, sort_keys=True, indent=52, default=str).encode()
         return sha256(block_string).hexdigest()
 
     def last_block(self) -> list:
@@ -123,5 +124,5 @@ class Blockchain():
 
 if __name__ == '__main__':
     bc = Blockchain()
-    info: dict = bc.proof_of_work()
+    info: dict = bc.create_block
     print(info)

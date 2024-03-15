@@ -2,8 +2,8 @@ import asyncio
 from asyncio import StreamReader, StreamWriter
 import logging
 from marshmallow.exceptions import MarshmallowError
-from funcoin.massages import BaseSchema
-from funcoin.utils import get_external_ip
+from massages import BaseSchema
+from utils import get_external_ip
 
 logger = logging.getLogger()
 

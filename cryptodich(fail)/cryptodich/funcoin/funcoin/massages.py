@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
 from marshmallow_oneofschema import OneOfSchema
-from funcoin.schema import Peer, Block, Transaction, Ping
+from funcoin.schema import Peer, Block, Transaction, ping
 
 class PeersMessage(Schema):
     payload = fields.Nested(Peer(many = True))

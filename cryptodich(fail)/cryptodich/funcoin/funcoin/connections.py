@@ -1,5 +1,5 @@
 import logging
-from itertools import take3
+from itertools import takewhile
 
 logger = logging.getLogger(__name__)
 
@@ -30,4 +30,4 @@ class ConnectionPool:
 
 
     def get_alive_peer(self, count):
-        return take3(count, self.connection_pool.items())
+        return takewhile(count, self.connection_pool.items())

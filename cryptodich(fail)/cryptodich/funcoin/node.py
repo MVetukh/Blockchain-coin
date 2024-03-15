@@ -1,11 +1,11 @@
 import asyncio
-from funcoin.blockchain import BlockChain
+from funcoin.blockchain import Blockchain
 from funcoin.connections import ConnectionPool
 from funcoin.peers import P2PProtocol
 from funcoin.server import Server
 
 
-blockchain = BlockChain()
+blockchain = Blockchain()
 connection_pool  = ConnectionPool()
 
 server = Server(blockchain, connection_pool, P2PProtocol)
